@@ -1,6 +1,6 @@
 Name:		texlive-pgf-periodictable
 Version:	64974
-Release:	1
+Release:	2
 Summary:	Create custom periodic tables of elements
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/pgf-periodictable
