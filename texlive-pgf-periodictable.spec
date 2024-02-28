@@ -1,5 +1,5 @@
 Name:		texlive-pgf-periodictable
-Version:	67250
+Version:	69924
 Release:	1
 Summary:	Create custom periodic tables of elements
 Group:		Publishing
