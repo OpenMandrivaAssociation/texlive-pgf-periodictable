@@ -1,40 +1,27 @@
-Name:		texlive-pgf-periodictable
-Version:	72236
-Release:	1
+%global tl_name pgf-periodictable
+%global tl_revision 78931
+
+Name:		texlive-%{tl_name}
+Epoch:		1
+Version:	2.1.6a
+Release:	%{tl_revision}.1
 Summary:	Create custom periodic tables of elements
 Group:		Publishing
-URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/pgf-periodictable
+URL:		https://www.ctan.org/tex-archive/graphics/pgf/contrib/pgf-periodictable
 License:	lppl1.3
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/pgf-periodictable.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/pgf-periodictable.doc.r%{version}.tar.xz
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/pgf-periodictable.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/pgf-periodictable.doc.r%{tl_revision}.tar.xz
 BuildArch:	noarch
-BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+BuildSystem:	texlive
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-The purpose of this package is to provide the Periodic Table of
-Elements in a simple way. It relies on PGF/TikZ to offer a full
-or partial periodic table with a variety of options and
-displaying the desired data for all the 118 elements. It can be
-done in six languages: English, French, German, Portuguese
-(from Portugal and from Brazil), Spanish and Italian.
+The purpose of this package is to provide the Periodic Table of Elements
+in a simple way. It relies on PGF/TikZ to offer a full or partial
+periodic table with a variety of options and displaying the desired data
+for all the 118 elements. It can be done in different languages:
+English, French, German, Portuguese (from Portugal and from Brazil),
+Spanish, Italian and translations provided by user contributions --
+currently in Dutch, Chinese, Russian, Ukrainian and Slovenian.
+Compatible with pdfLaTeX, LuaLaTeX and XeLaTeX engines.
 
-%prep
-%autosetup -p1 -c -a1
-
-%build
-
-%install
-rm -rf tlpkg
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -a * %{buildroot}%{_texmfdistdir}
-
-%files
-%{_texmfdistdir}/tex/latex/pgf-periodictable
-%doc %{_texmfdistdir}/doc/latex/pgf-periodictable
-
-%post -p %{_sbindir}/texlive.post
-
-%postun
-[ "$1" -eq 0 ] && %{_sbindir}/texlive.post
